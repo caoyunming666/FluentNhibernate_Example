@@ -16,7 +16,6 @@ namespace FlunteNhibernate_Test0910
             Configuration cfg = new Configuration()
                 .Configure()
                 .SetProperty("NHibernate.Test", "connection.connection_string");
-
             sessionFactory = Fluently.Configure(cfg)
                 .Mappings(x => x.FluentMappings.AddFromAssemblyOf<SessionFactory>())
                 .BuildSessionFactory();
