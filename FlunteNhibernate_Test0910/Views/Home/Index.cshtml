@@ -1,0 +1,20 @@
+﻿@using FlunteNhibernate_Test0910.Models
+@{
+    ViewBag.Title = "Index";
+
+    List<Persion> persions = ViewBag.Persion as List<Persion>;
+}
+
+<h2>Index</h2>
+
+
+@{ 
+    if (persions!=null&& persions.Count>0)
+    {
+        foreach (var item in persions)
+        {
+            <h3>名称： @item.Name  年龄：@item.Age</h3>
+        }
+    }
+}
+
