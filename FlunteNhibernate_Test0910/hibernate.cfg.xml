@@ -9,7 +9,7 @@ for your own use before compile tests in VisualStudio.
   <session-factory name="NHibernate.Test">
     <property name="connection.driver_class">NHibernate.Driver.MySqlDataDriver</property>
     <property name="connection.connection_string">
-      Server=localhost;Database=****;User Id=****;Password=******;
+      Server=localhost;Database=localpersion;User Id=root;Password=qq123456;
     </property>
     <property name="dialect">NHibernate.Dialect.MySQLDialect</property>
   </session-factory>

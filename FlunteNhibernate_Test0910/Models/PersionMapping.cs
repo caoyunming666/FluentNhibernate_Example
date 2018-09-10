@@ -6,6 +6,9 @@ using System.Web;
 
 namespace FlunteNhibernate_Test0910.Models
 {
+    /// <summary>
+    /// 实体映射
+    /// </summary>
     public class PersionMapping : ClassMap<Persion>
     {
         public PersionMapping()

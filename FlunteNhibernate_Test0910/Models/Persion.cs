@@ -5,6 +5,9 @@ using System.Web;
 
 namespace FlunteNhibernate_Test0910.Models
 {
+    /// <summary>
+    /// 数据库实体
+    /// </summary>
     public class Persion
     {
         public virtual int Id { get; set; }
