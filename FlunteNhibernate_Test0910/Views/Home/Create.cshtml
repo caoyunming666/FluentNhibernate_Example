@@ -1,0 +1,21 @@
+﻿@using FlunteNhibernate_Test0910.Models
+@model Persion
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+<form method="post" action="/Home/Create">
+
+    <label>Name:</label>
+    <input type="text" name="Name" value="" />
+    <br />
+    <label>Age:</label>
+    <input type="number" name="Age" value="" />
+    <br />
+    <input type="submit" value="submit" />
+</form>
+

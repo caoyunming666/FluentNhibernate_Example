@@ -13,7 +13,7 @@ namespace FlunteNhibernate_Test0910.Models
     {
         public PersionMapping()
         {
-            Table("local_persion");
+            Table("persion");
 
             Id(x => x.Id).Column("Id");
             Map(x => x.Name).Column("Name");

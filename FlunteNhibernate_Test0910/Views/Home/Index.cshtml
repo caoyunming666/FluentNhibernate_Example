@@ -8,13 +8,16 @@
 <h2>Index</h2>
 
 
-@{ 
-    if (persions!=null&& persions.Count>0)
+
+@{
+    if (persions != null && persions.Count > 0)
     {
         foreach (var item in persions)
         {
-            <h3>名称： @item.Name  年龄：@item.Age</h3>
+            <h3>名称： <a href="/Home/Edit/@item.Id">@item.Name</a>  年龄：@item.Age</h3>
         }
     }
 }
+
+<a href="/Home/Create">Create...</a>
 

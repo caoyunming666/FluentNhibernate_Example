@@ -1,5 +1,8 @@
-﻿using FlunteNhibernate_Test0910.Models;
+﻿using FlunteNhibernate_Test0910.Controllers;
+using FlunteNhibernate_Test0910.Models;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace FlunteNhibernate_Test0910
 {
@@ -10,7 +13,7 @@ namespace FlunteNhibernate_Test0910
     {
         public IList<Persion> GetAllPersion()
         {
-            using (var session = SessionFactory.OpenSession())
+            using (var session = SessionFactoryHandler.OpenSession())
             {
                 using (var transaction = session.BeginTransaction())
                 {
@@ -23,7 +26,7 @@ namespace FlunteNhibernate_Test0910
 
         public IList<Persion> GetPersionByName(string name)
         {
-            using (var session = SessionFactory.OpenSession())
+            using (var session = SessionFactoryHandler.OpenSession())
             {
                 using (var transaction = session.BeginTransaction())
                 {
@@ -36,7 +39,7 @@ namespace FlunteNhibernate_Test0910
 
         public void SavePersion(Persion persion)
         {
-            using (var session = SessionFactory.OpenSession())
+            using (var session = SessionFactoryHandler.OpenSession())
             {
                 using (var transaction = session.BeginTransaction())
                 {
@@ -49,7 +52,7 @@ namespace FlunteNhibernate_Test0910
 
         public void DeleteById(int id)
         {
-            using (var session = SessionFactory.OpenSession())
+            using (var session = SessionFactoryHandler.OpenSession())
             {
                 using (var transaction = session.BeginTransaction())
                 {
@@ -59,6 +62,34 @@ namespace FlunteNhibernate_Test0910
                     session.Delete(p1);
                     session.Flush();
                     transaction.Commit();
+                }
+            }
+        }
+
+        public void UpdatePersion(Persion persion)
+        {
+            using (var session = SessionFactoryHandler.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    //model.Name = persion.Name;
+                    //model.Age = persion.Age;
+                    session.Update(persion);
+                    session.Flush();
+                    transaction.Commit();
+                }
+            }
+        }
+
+        public Persion GetPersionById(int id)
+        {
+            using (var session = SessionFactoryHandler.OpenSession())
+            {
+                using (var transaction = session.BeginTransaction())
+                {
+                    var persionList = session.QueryOver<Persion>().Where(x => x.Id == id).List();
+                    transaction.Commit();
+                    return persionList.FirstOrDefault();
                 }
             }
         }

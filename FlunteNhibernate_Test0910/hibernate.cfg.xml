@@ -5,13 +5,19 @@ Copy the template to your NHibernate.Test project folder and rename it in hibern
 for your own use before compile tests in VisualStudio.
 -->
 <!-- This is the ByteFX.Data.dll provider for MySql -->
-<hibernate-configuration  xmlns="urn:nhibernate-configuration-2.2" >
+<hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
   <!--name="NHibernate.Test"-->
   <session-factory name="NHibernate.Test">
     <property name="connection.driver_class">NHibernate.Driver.MySqlDataDriver</property>
+    <!--数据库连接字符串一定要加上 charset=utf8; 否则进入数据库的中文都会变成乱码-->
     <property name="connection.connection_string">
-      Server=localhost;Database=localpersion;User Id=root;Password=qq123456;
+      Server=localhost;Database=localtest_persion;User Id=root;Password=qq123456;Allow Zero Datetime=false;charset=utf8;pooling=true;
     </property>
     <property name="dialect">NHibernate.Dialect.MySQLDialect</property>
+    <property name="query.substitutions">true 1, false 0, yes 'Y', no 'N'</property>
+    <!--<property name="connection.characterEncoding">utf8</property>-->
+    <!--<property name="hibernate.connection.url">
+              <![CDATA[jdbc:mysql://localhost:3306/daycode?useUnicode=true&characterEncoding=utf8]]>
+    </property>-->
   </session-factory>
 </hibernate-configuration>
