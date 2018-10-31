@@ -95,6 +95,7 @@ namespace FlunteNhibernate_Test0910.Controllers
 
             if (!string.IsNullOrWhiteSpace(ruleStr))
             {
+                #region 重构前：使用多个if else
                 /* 
                  * 在一个函数中，出现过多的分支 造成最明显的结果就是业务逻辑不清晰，代码不易阅读
                  * 且代码复杂度较高。这里引用网上的资料： https://blog.csdn.net/d29h1jqy3akvx/article/details/78211518
@@ -107,7 +108,6 @@ namespace FlunteNhibernate_Test0910.Controllers
                         由于现代编程语言摒弃了 goto，因此不论控制流再复杂，函数体内代码的执行顺序也都是从上而下的。
                         因此，我们完全有能力在不改变控制流逻辑的前提下，将一个单体的大函数，自上而下拆逐步分为多个小函数，而后逐个调用之。这是有经验的同学经常使用的技巧，具体代码实现在此不做赘述了。
                  */
-                #region 重构前：使用多个if else
                 if (ruleStr == "Zero")
                 {
                     //do something...
@@ -126,9 +126,7 @@ namespace FlunteNhibernate_Test0910.Controllers
                 }
                 #endregion
 
-
                 #region 重构后：使用函数代替分支
-
                 /* 
                  * 重构之后的主函数(如果删除重构前的代码)体内，只会看到4行代码，极大提高了代码的易读性。业务逻辑只要
                  * 处理函数名称做到见名知意，那也是相当清晰的。
