@@ -42,7 +42,6 @@ namespace FlunteNhibernate_Test0910.Controllers
             return Redirect("/Home/Index");
         }
 
-
         public ActionResult Edit(int id)
         {
             Persion model = sfm.GetPersionById(id);
@@ -69,6 +68,15 @@ namespace FlunteNhibernate_Test0910.Controllers
             sfm.UpdatePersion(model);
 
             return Redirect("/Home/Index");
+        }
+
+
+        public ActionResult Delete(int id)
+        {
+            //Persion delobj = sfm.GetPersionById(id);
+            sfm.DeleteById(id);
+
+            return RedirectToAction("Index", "Home");
         }
 
 

@@ -14,7 +14,7 @@
     {
         foreach (var item in persions)
         {
-            <h3>名称： <a href="/Home/Edit/@item.Id">@item.Name</a>  年龄：@item.Age</h3>
+            <h3>名称： <a href="/Home/Edit/@item.Id">@item.Name</a>  年龄：@item.Age  <a href="/Home/Delete?id=@item.Id">del</a></h3>
         }
     }
 }
